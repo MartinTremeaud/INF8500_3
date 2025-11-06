@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<spirit:component xmlns:spacestudio="https://www.spacecodesign.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
+    <spirit:vendor>spacecodesign.com</spirit:vendor>
+    <spirit:library>ip</spirit:library>
+    <spirit:name>toplevel</spirit:name>
+    <spirit:version>1.0</spirit:version>
+    <spirit:model>
+        <spirit:views>
+            <spirit:view>
+                <spirit:name>system</spirit:name>
+                <spirit:envIdentifier>:spacestudio.spacecodesign.com:</spirit:envIdentifier>
+                <spirit:hierarchyRef spirit:vendor="spacecodesign.com" spirit:library="design" spirit:name="toplevel" spirit:version="1.0"/>
+            </spirit:view>
+        </spirit:views>
+        <spirit:ports>
+            <spirit:port>
+                <spirit:name>clock</spirit:name>
+                <spirit:transactional>
+                    <spirit:transTypeDef>
+                        <spirit:typeName>sc_port</spirit:typeName>
+                        <spirit:typeDefinition>systemc</spirit:typeDefinition>
+                    </spirit:transTypeDef>
+                    <spirit:service>
+                        <spirit:initiative>provides</spirit:initiative>
+                        <spirit:serviceTypeDefs>
+                            <spirit:serviceTypeDef>
+                                <spirit:typeName>bool</spirit:typeName>
+                            </spirit:serviceTypeDef>
+                        </spirit:serviceTypeDefs>
+                    </spirit:service>
+                </spirit:transactional>
+            </spirit:port>
+            <spirit:port>
+                <spirit:name>reset</spirit:name>
+                <spirit:transactional>
+                    <spirit:transTypeDef>
+                        <spirit:typeName>sc_port</spirit:typeName>
+                        <spirit:typeDefinition>systemc</spirit:typeDefinition>
+                    </spirit:transTypeDef>
+                    <spirit:service>
+                        <spirit:initiative>provides</spirit:initiative>
+                        <spirit:serviceTypeDefs>
+                            <spirit:serviceTypeDef>
+                                <spirit:typeName>bool</spirit:typeName>
+                            </spirit:serviceTypeDef>
+                        </spirit:serviceTypeDefs>
+                    </spirit:service>
+                </spirit:transactional>
+            </spirit:port>
+        </spirit:ports>
+    </spirit:model>
+    <spirit:choices>
+        <spirit:choice>
+            <spirit:name>generation_choice</spirit:name>
+            <spirit:enumeration spirit:text="debug">debug</spirit:enumeration>
+            <spirit:enumeration spirit:text="monitoring">monitoring</spirit:enumeration>
+            <spirit:enumeration spirit:text="release">release</spirit:enumeration>
+        </spirit:choice>
+    </spirit:choices>
+    <spirit:parameters>
+        <spirit:parameter>
+            <spirit:name>generation_type</spirit:name>
+            <spirit:value spirit:format="string" spirit:choiceRef="generation_choice" spirit:resolve="generated" spirit:id="generation_type">release</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>is_debug_enable</spirit:name>
+            <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="is_debug_enable">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>period</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="period">10.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>period_unit</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="period_unit">SC_NS</spirit:value>
+        </spirit:parameter>
+    </spirit:parameters>
+</spirit:component>

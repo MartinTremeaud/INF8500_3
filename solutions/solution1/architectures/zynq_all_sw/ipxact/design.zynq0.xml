@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<spirit:design xmlns:spacestudio="https://www.spacecodesign.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
+    <spirit:vendor>spacecodesign.com</spirit:vendor>
+    <spirit:library>soc</spirit:library>
+    <spirit:name>design.zynq0</spirit:name>
+    <spirit:version>1.0</spirit:version>
+    <spirit:componentInstances>
+        <spirit:componentInstance>
+            <spirit:instanceName>zynq_apu0</spirit:instanceName>
+            <spirit:componentRef spirit:vendor="spacecodesign.com" spirit:library="processor" spirit:name="zynq_apu" spirit:version="1.0"/>
+            <spirit:configurableElementValues>
+                <spirit:configurableElementValue spirit:referenceId="core0.linux.debug_port">49260</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="core0.linux.device_tree_location">%installation_folder%/data/sw/OS/linux/boards/simulation-zynq/dts</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="core0.linux.kernel_drivers">%installation_folder%/data/sw/OS/linux/boards/simulation-zynq/drivers</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="core0.linux.kernel_image">%installation_folder%/data/sw/OS/linux/boards/simulation-zynq/uImage</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="core0.linux.rootfs_location">%installation_folder%/data/sw/OS/linux/boards/simulation-zynq/rootfs.cpio</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="core0.linux.rootfs_shell_script_location">%project_directory%/scripts/user_script.sh</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="core0.linux.rootfs_shell_script_location.is_enabled">true</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="core0.linux.uboot_location">%installation_folder%/data/sw/OS/linux/boards/simulation-zynq/u-boot.elf</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="core0.linux.uboot_script_location">%installation_folder%/data/sw/OS/linux/boards/simulation-zynq/boot.scr</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id">5</spirit:configurableElementValue>
+            </spirit:configurableElementValues>
+        </spirit:componentInstance>
+        <spirit:componentInstance>
+            <spirit:instanceName>zynq_ddr0</spirit:instanceName>
+            <spirit:componentRef spirit:vendor="spacecodesign.com" spirit:library="memory" spirit:name="ddr" spirit:version="1.0"/>
+            <spirit:configurableElementValues>
+                <spirit:configurableElementValue spirit:referenceId="axi_slave_mm.base_address">0x00000000</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="axi_slave_mm.range">1GB</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id">6</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id_key">ZYNQ_DDR0_ID</spirit:configurableElementValue>
+            </spirit:configurableElementValues>
+        </spirit:componentInstance>
+        <spirit:componentInstance>
+            <spirit:instanceName>zynq_interconnect0</spirit:instanceName>
+            <spirit:componentRef spirit:vendor="spacecodesign.com" spirit:library="interconnect" spirit:name="axi4_interconnect" spirit:version="1.0"/>
+            <spirit:configurableElementValues>
+                <spirit:configurableElementValue spirit:referenceId="bus_addresses">(void*)&amp;spacelib_global::zynq_interconnect0_container</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id">7</spirit:configurableElementValue>
+            </spirit:configurableElementValues>
+        </spirit:componentInstance>
+    </spirit:componentInstances>
+    <spirit:interconnections>
+        <spirit:interconnection>
+            <spirit:name>ddr_mm</spirit:name>
+            <spirit:activeInterface spirit:componentRef="zynq_ddr0" spirit:busRef="axi_slave"/>
+            <spirit:activeInterface spirit:componentRef="zynq_interconnect0" spirit:busRef="axi_master_0"/>
+        </spirit:interconnection>
+        <spirit:interconnection>
+            <spirit:name>zynq_apu_mm</spirit:name>
+            <spirit:activeInterface spirit:componentRef="zynq_apu0" spirit:busRef="axi_master"/>
+            <spirit:activeInterface spirit:componentRef="zynq_interconnect0" spirit:busRef="axi_slave_0"/>
+        </spirit:interconnection>
+    </spirit:interconnections>
+    <spirit:hierConnections>
+        <spirit:hierConnection spirit:interfaceRef="spi0">
+            <spirit:interface spirit:componentRef="zynq_apu0" spirit:busRef="spi0"/>
+        </spirit:hierConnection>
+        <spirit:hierConnection spirit:interfaceRef="spi1">
+            <spirit:interface spirit:componentRef="zynq_apu0" spirit:busRef="spi1"/>
+        </spirit:hierConnection>
+        <spirit:hierConnection spirit:interfaceRef="axi_hp0">
+            <spirit:interface spirit:componentRef="zynq_interconnect0" spirit:busRef="axi_slave_1"/>
+        </spirit:hierConnection>
+        <spirit:hierConnection spirit:interfaceRef="axi_hp1">
+            <spirit:interface spirit:componentRef="zynq_interconnect0" spirit:busRef="axi_slave_2"/>
+        </spirit:hierConnection>
+        <spirit:hierConnection spirit:interfaceRef="axi_hp2">
+            <spirit:interface spirit:componentRef="zynq_interconnect0" spirit:busRef="axi_slave_3"/>
+        </spirit:hierConnection>
+        <spirit:hierConnection spirit:interfaceRef="axi_hp3">
+            <spirit:interface spirit:componentRef="zynq_interconnect0" spirit:busRef="axi_slave_4"/>
+        </spirit:hierConnection>
+        <spirit:hierConnection spirit:interfaceRef="axi_gp0">
+            <spirit:interface spirit:componentRef="zynq_interconnect0" spirit:busRef="axi_master_1"/>
+        </spirit:hierConnection>
+    </spirit:hierConnections>
+</spirit:design>

@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<spirit:component xmlns:spacestudio="https://www.spacecodesign.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
+    <spirit:vendor>spacecodesign.com</spirit:vendor>
+    <spirit:library>soc</spirit:library>
+    <spirit:name>component.zynq0</spirit:name>
+    <spirit:version>1.0</spirit:version>
+    <spirit:busInterfaces>
+        <spirit:busInterface>
+            <spirit:name>axi_gp0</spirit:name>
+            <spirit:busType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="memory_map" spirit:version="1.0"/>
+            <spirit:abstractionType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="memory_map_simulation" spirit:version="1.0"/>
+            <spirit:master>
+                <spirit:addressSpaceRef spirit:addressSpaceRef="fpga">
+                    <spirit:baseAddress spirit:format="long" spirit:resolve="immediate" spirit:id="fpga.base_address">0x40000000</spirit:baseAddress>
+                </spirit:addressSpaceRef>
+            </spirit:master>
+            <spirit:portMaps>
+                <spirit:portMap>
+                    <spirit:logicalPort>
+                        <spirit:name>transaction</spirit:name>
+                    </spirit:logicalPort>
+                    <spirit:physicalPort>
+                        <spirit:name>axi_gp0</spirit:name>
+                    </spirit:physicalPort>
+                </spirit:portMap>
+            </spirit:portMaps>
+            <spirit:parameters>
+                <spirit:parameter>
+                    <spirit:name>axi_gp0.period</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="axi_gp0.period">10.0</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_gp0.period_unit</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="axi_gp0.period_unit">SC_NS</spirit:value>
+                </spirit:parameter>
+            </spirit:parameters>
+        </spirit:busInterface>
+        <spirit:busInterface>
+            <spirit:name>axi_hp0</spirit:name>
+            <spirit:busType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="memory_map" spirit:version="1.0"/>
+            <spirit:abstractionType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="memory_map_simulation" spirit:version="1.0"/>
+            <spirit:slave>
+                <spirit:memoryMapRef spirit:memoryMapRef="ddr"/>
+            </spirit:slave>
+            <spirit:portMaps>
+                <spirit:portMap>
+                    <spirit:logicalPort>
+                        <spirit:name>transaction</spirit:name>
+                    </spirit:logicalPort>
+                    <spirit:physicalPort>
+                        <spirit:name>axi_hp</spirit:name>
+                    </spirit:physicalPort>
+                </spirit:portMap>
+            </spirit:portMaps>
+            <spirit:parameters>
+                <spirit:parameter>
+                    <spirit:name>axi_hp0.group_interface</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="immediate" spirit:id="axi_hp0.group_interface">axi_hp</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp0.index</spirit:name>
+                    <spirit:value spirit:format="long" spirit:resolve="immediate" spirit:id="axi_hp0.index">0</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp0.is_array</spirit:name>
+                    <spirit:value spirit:format="bool" spirit:resolve="immediate" spirit:id="axi_hp0.is_array">true</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp0.is_fixed_address_range</spirit:name>
+                    <spirit:value spirit:format="bool" spirit:resolve="immediate" spirit:id="axi_hp0.is_fixed_address_range">true</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp0.period</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="axi_hp0.period">10.0</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp0.period_unit</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="axi_hp0.period_unit">SC_NS</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp0.width</spirit:name>
+                    <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="axi_hp0.width">4</spirit:value>
+                </spirit:parameter>
+            </spirit:parameters>
+        </spirit:busInterface>
+        <spirit:busInterface>
+            <spirit:name>axi_hp1</spirit:name>
+            <spirit:busType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="memory_map" spirit:version="1.0"/>
+            <spirit:abstractionType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="memory_map_simulation" spirit:version="1.0"/>
+            <spirit:slave>
+                <spirit:memoryMapRef spirit:memoryMapRef="ddr"/>
+            </spirit:slave>
+            <spirit:portMaps>
+                <spirit:portMap>
+                    <spirit:logicalPort>
+                        <spirit:name>transaction</spirit:name>
+                    </spirit:logicalPort>
+                    <spirit:physicalPort>
+                        <spirit:name>axi_hp</spirit:name>
+                    </spirit:physicalPort>
+                </spirit:portMap>
+            </spirit:portMaps>
+            <spirit:parameters>
+                <spirit:parameter>
+                    <spirit:name>axi_hp1.group_interface</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="immediate" spirit:id="axi_hp1.group_interface">axi_hp</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp1.index</spirit:name>
+                    <spirit:value spirit:format="long" spirit:resolve="immediate" spirit:id="axi_hp1.index">1</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp1.is_array</spirit:name>
+                    <spirit:value spirit:format="bool" spirit:resolve="immediate" spirit:id="axi_hp1.is_array">true</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp1.is_fixed_address_range</spirit:name>
+                    <spirit:value spirit:format="bool" spirit:resolve="immediate" spirit:id="axi_hp1.is_fixed_address_range">true</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp1.period</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="axi_hp1.period">10.0</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp1.period_unit</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="axi_hp1.period_unit">SC_NS</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp1.width</spirit:name>
+                    <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="axi_hp1.width">4</spirit:value>
+                </spirit:parameter>
+            </spirit:parameters>
+        </spirit:busInterface>
+        <spirit:busInterface>
+            <spirit:name>axi_hp2</spirit:name>
+            <spirit:busType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="memory_map" spirit:version="1.0"/>
+            <spirit:abstractionType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="memory_map_simulation" spirit:version="1.0"/>
+            <spirit:slave>
+                <spirit:memoryMapRef spirit:memoryMapRef="ddr"/>
+            </spirit:slave>
+            <spirit:portMaps>
+                <spirit:portMap>
+                    <spirit:logicalPort>
+                        <spirit:name>transaction</spirit:name>
+                    </spirit:logicalPort>
+                    <spirit:physicalPort>
+                        <spirit:name>axi_hp</spirit:name>
+                    </spirit:physicalPort>
+                </spirit:portMap>
+            </spirit:portMaps>
+            <spirit:parameters>
+                <spirit:parameter>
+                    <spirit:name>axi_hp2.group_interface</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="immediate" spirit:id="axi_hp2.group_interface">axi_hp</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp2.index</spirit:name>
+                    <spirit:value spirit:format="long" spirit:resolve="immediate" spirit:id="axi_hp2.index">2</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp2.is_array</spirit:name>
+                    <spirit:value spirit:format="bool" spirit:resolve="immediate" spirit:id="axi_hp2.is_array">true</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp2.is_fixed_address_range</spirit:name>
+                    <spirit:value spirit:format="bool" spirit:resolve="immediate" spirit:id="axi_hp2.is_fixed_address_range">true</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp2.period</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="axi_hp2.period">10.0</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp2.period_unit</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="axi_hp2.period_unit">SC_NS</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp2.width</spirit:name>
+                    <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="axi_hp2.width">4</spirit:value>
+                </spirit:parameter>
+            </spirit:parameters>
+        </spirit:busInterface>
+        <spirit:busInterface>
+            <spirit:name>axi_hp3</spirit:name>
+            <spirit:busType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="memory_map" spirit:version="1.0"/>
+            <spirit:abstractionType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="memory_map_simulation" spirit:version="1.0"/>
+            <spirit:slave>
+                <spirit:memoryMapRef spirit:memoryMapRef="ddr"/>
+            </spirit:slave>
+            <spirit:portMaps>
+                <spirit:portMap>
+                    <spirit:logicalPort>
+                        <spirit:name>transaction</spirit:name>
+                    </spirit:logicalPort>
+                    <spirit:physicalPort>
+                        <spirit:name>axi_hp</spirit:name>
+                    </spirit:physicalPort>
+                </spirit:portMap>
+            </spirit:portMaps>
+            <spirit:parameters>
+                <spirit:parameter>
+                    <spirit:name>axi_hp3.group_interface</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="immediate" spirit:id="axi_hp3.group_interface">axi_hp</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp3.index</spirit:name>
+                    <spirit:value spirit:format="long" spirit:resolve="immediate" spirit:id="axi_hp3.index">3</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp3.is_array</spirit:name>
+                    <spirit:value spirit:format="bool" spirit:resolve="immediate" spirit:id="axi_hp3.is_array">true</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp3.is_fixed_address_range</spirit:name>
+                    <spirit:value spirit:format="bool" spirit:resolve="immediate" spirit:id="axi_hp3.is_fixed_address_range">true</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp3.period</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="axi_hp3.period">10.0</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp3.period_unit</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="axi_hp3.period_unit">SC_NS</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>axi_hp3.width</spirit:name>
+                    <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="axi_hp3.width">4</spirit:value>
+                </spirit:parameter>
+            </spirit:parameters>
+        </spirit:busInterface>
+        <spirit:busInterface>
+            <spirit:name>spi0</spirit:name>
+            <spirit:busType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="interrupt" spirit:version="1.0"/>
+            <spirit:abstractionType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="interrupt_simulation" spirit:version="1.0"/>
+            <spirit:slave/>
+            <spirit:portMaps>
+                <spirit:portMap>
+                    <spirit:logicalPort>
+                        <spirit:name>irq</spirit:name>
+                    </spirit:logicalPort>
+                    <spirit:physicalPort>
+                        <spirit:name>spi</spirit:name>
+                    </spirit:physicalPort>
+                </spirit:portMap>
+            </spirit:portMaps>
+            <spirit:parameters>
+                <spirit:parameter>
+                    <spirit:name>spi0.group_interface</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="immediate" spirit:id="spi0.group_interface">spi</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>spi0.index</spirit:name>
+                    <spirit:value spirit:format="long" spirit:resolve="immediate" spirit:id="spi0.index">0</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>spi0.is_array</spirit:name>
+                    <spirit:value spirit:format="bool" spirit:resolve="immediate" spirit:id="spi0.is_array">true</spirit:value>
+                </spirit:parameter>
+            </spirit:parameters>
+        </spirit:busInterface>
+        <spirit:busInterface>
+            <spirit:name>spi1</spirit:name>
+            <spirit:busType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="interrupt" spirit:version="1.0"/>
+            <spirit:abstractionType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="interrupt_simulation" spirit:version="1.0"/>
+            <spirit:slave/>
+            <spirit:portMaps>
+                <spirit:portMap>
+                    <spirit:logicalPort>
+                        <spirit:name>irq</spirit:name>
+                    </spirit:logicalPort>
+                    <spirit:physicalPort>
+                        <spirit:name>spi</spirit:name>
+                    </spirit:physicalPort>
+                </spirit:portMap>
+            </spirit:portMaps>
+            <spirit:parameters>
+                <spirit:parameter>
+                    <spirit:name>spi1.group_interface</spirit:name>
+                    <spirit:value spirit:format="string" spirit:resolve="immediate" spirit:id="spi1.group_interface">spi</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>spi1.index</spirit:name>
+                    <spirit:value spirit:format="long" spirit:resolve="immediate" spirit:id="spi1.index">1</spirit:value>
+                </spirit:parameter>
+                <spirit:parameter>
+                    <spirit:name>spi1.is_array</spirit:name>
+                    <spirit:value spirit:format="bool" spirit:resolve="immediate" spirit:id="spi1.is_array">true</spirit:value>
+                </spirit:parameter>
+            </spirit:parameters>
+        </spirit:busInterface>
+    </spirit:busInterfaces>
+    <spirit:addressSpaces>
+        <spirit:addressSpace>
+            <spirit:name>fpga</spirit:name>
+            <spirit:range spirit:format="long" spirit:resolve="immediate" spirit:id="fpga.range">0x40000000</spirit:range>
+            <spirit:width spirit:format="long">32</spirit:width>
+            <spirit:segments>
+                <spirit:segment>
+                    <spirit:name>gp0</spirit:name>
+                    <spirit:addressOffset spirit:format="long" spirit:resolve="immediate" spirit:id="fpga.gp0.address_offset">0x40000000</spirit:addressOffset>
+                    <spirit:range spirit:format="long" spirit:resolve="immediate" spirit:id="fpga.gp0.range">0x40000000</spirit:range>
+                </spirit:segment>
+            </spirit:segments>
+        </spirit:addressSpace>
+    </spirit:addressSpaces>
+    <spirit:memoryMaps>
+        <spirit:memoryMap>
+            <spirit:name>ddr</spirit:name>
+            <spirit:addressBlock>
+                <spirit:name>linux_memory</spirit:name>
+                <spirit:baseAddress spirit:format="long" spirit:resolve="immediate" spirit:id="ddr.linux_memory.base_address">0x0</spirit:baseAddress>
+                <spirit:range spirit:format="long" spirit:resolve="immediate" spirit:id="ddr.linux_memory.range">0x10000000</spirit:range>
+                <spirit:width spirit:format="long" spirit:choiceRef="hp_width" spirit:resolve="immediate" spirit:id="ddr.linux_memory.width">32</spirit:width>
+            </spirit:addressBlock>
+            <spirit:addressBlock>
+                <spirit:name>shared_soc_memory</spirit:name>
+                <spirit:baseAddress spirit:format="long" spirit:resolve="immediate" spirit:id="ddr.shared_soc_memory.base_address">0x10000000</spirit:baseAddress>
+                <spirit:range spirit:format="long" spirit:resolve="immediate" spirit:id="ddr.shared_soc_memory.range">0x30000000</spirit:range>
+                <spirit:width spirit:format="long" spirit:choiceRef="hp_width" spirit:resolve="immediate" spirit:id="ddr.shared_soc_memory.width">32</spirit:width>
+            </spirit:addressBlock>
+        </spirit:memoryMap>
+    </spirit:memoryMaps>
+    <spirit:model>
+        <spirit:views>
+            <spirit:view>
+                <spirit:name>hierarchical</spirit:name>
+                <spirit:envIdentifier>:spacestudio.spacecodesign.com:</spirit:envIdentifier>
+                <spirit:hierarchyRef spirit:vendor="spacecodesign.com" spirit:library="soc" spirit:name="design.zynq0" spirit:version="1.0"/>
+            </spirit:view>
+        </spirit:views>
+        <spirit:ports>
+            <spirit:port>
+                <spirit:name>axi_gp0</spirit:name>
+                <spirit:transactional>
+                    <spirit:transTypeDef>
+                        <spirit:typeName>sc_export</spirit:typeName>
+                        <spirit:typeDefinition>systemc</spirit:typeDefinition>
+                    </spirit:transTypeDef>
+                    <spirit:service>
+                        <spirit:initiative>requires</spirit:initiative>
+                        <spirit:serviceTypeDefs>
+                            <spirit:serviceTypeDef>
+                                <spirit:typeName>memory_map_if</spirit:typeName>
+                                <spirit:typeDefinition>memory_map_if.h</spirit:typeDefinition>
+                            </spirit:serviceTypeDef>
+                        </spirit:serviceTypeDefs>
+                    </spirit:service>
+                </spirit:transactional>
+            </spirit:port>
+            <spirit:port>
+                <spirit:name>axi_hp</spirit:name>
+                <spirit:transactional>
+                    <spirit:transTypeDef>
+                        <spirit:typeName>sc_export</spirit:typeName>
+                        <spirit:typeDefinition>systemc</spirit:typeDefinition>
+                    </spirit:transTypeDef>
+                    <spirit:service>
+                        <spirit:initiative>provides</spirit:initiative>
+                        <spirit:serviceTypeDefs>
+                            <spirit:serviceTypeDef>
+                                <spirit:typeName>memory_map_if</spirit:typeName>
+                                <spirit:typeDefinition>memory_map_if.h</spirit:typeDefinition>
+                            </spirit:serviceTypeDef>
+                        </spirit:serviceTypeDefs>
+                    </spirit:service>
+                </spirit:transactional>
+            </spirit:port>
+            <spirit:port>
+                <spirit:name>spi</spirit:name>
+                <spirit:transactional>
+                    <spirit:transTypeDef>
+                        <spirit:typeName>sc_port</spirit:typeName>
+                        <spirit:typeDefinition>systemc</spirit:typeDefinition>
+                    </spirit:transTypeDef>
+                    <spirit:service>
+                        <spirit:initiative>both</spirit:initiative>
+                        <spirit:serviceTypeDefs>
+                            <spirit:serviceTypeDef>
+                                <spirit:typeName>bool</spirit:typeName>
+                            </spirit:serviceTypeDef>
+                        </spirit:serviceTypeDefs>
+                    </spirit:service>
+                </spirit:transactional>
+            </spirit:port>
+        </spirit:ports>
+        <spirit:modelParameters>
+            <spirit:modelParameter spirit:dataType="string">
+                <spirit:name>hostname</spirit:name>
+                <spirit:value spirit:format="string" spirit:order="1.0" spirit:resolve="generated" spirit:id="hostname">localhost</spirit:value>
+            </spirit:modelParameter>
+            <spirit:modelParameter spirit:dataType="string">
+                <spirit:name>instance_name</spirit:name>
+                <spirit:value spirit:format="string" spirit:order="0.0" spirit:resolve="generated" spirit:id="instance_name"></spirit:value>
+            </spirit:modelParameter>
+            <spirit:modelParameter spirit:dataType="int">
+                <spirit:name>qemu_cosim_port</spirit:name>
+                <spirit:value spirit:format="string" spirit:order="2.0" spirit:resolve="generated" spirit:id="qemu_cosim_port">1050</spirit:value>
+            </spirit:modelParameter>
+            <spirit:modelParameter spirit:dataType="int">
+                <spirit:name>qemu_sync</spirit:name>
+                <spirit:value spirit:format="long" spirit:order="3.0" spirit:resolve="generated" spirit:id="qemu_sync">100000</spirit:value>
+            </spirit:modelParameter>
+        </spirit:modelParameters>
+    </spirit:model>
+    <spirit:choices>
+        <spirit:choice>
+            <spirit:name>hp_width</spirit:name>
+            <spirit:enumeration spirit:text="32-bit">32</spirit:enumeration>
+            <spirit:enumeration spirit:text="64-bit">64</spirit:enumeration>
+        </spirit:choice>
+    </spirit:choices>
+    <spirit:fileSets>
+        <spirit:fileSet>
+            <spirit:name>hierarchical_includes</spirit:name>
+            <spirit:file>
+                <spirit:name>spacelib/hw/soc/zynq/zynq.h</spirit:name>
+                <spirit:fileType>cppSource</spirit:fileType>
+            </spirit:file>
+        </spirit:fileSet>
+    </spirit:fileSets>
+    <spirit:description>Xilinx Zynq SoC is a hierarchical component that contains an ARM Cortex A9 Dual-Cores APU (Zynq APU), a local interconnect and a DDR.</spirit:description>
+    <spirit:parameters>
+        <spirit:parameter>
+            <spirit:name>base_vlnv</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="immediate" spirit:id="base_vlnv">[spacecodesign.com soc zynq 1.0]</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>debug_port</spirit:name>
+            <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="debug_port">1050</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>debug_port.is_automatic</spirit:name>
+            <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="debug_port.is_automatic">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>documentation</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="documentation"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>is_debug_enable</spirit:name>
+            <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="is_debug_enable">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>is_hard_core</spirit:name>
+            <spirit:value spirit:format="bool" spirit:resolve="immediate" spirit:id="is_hard_core">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>is_hierarchy_instantiable</spirit:name>
+            <spirit:value spirit:format="bool" spirit:resolve="immediate" spirit:id="is_hierarchy_instantiable">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>is_user_instantiable</spirit:name>
+            <spirit:value spirit:format="bool" spirit:resolve="immediate" spirit:id="is_user_instantiable">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>is_window_console</spirit:name>
+            <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="is_window_console">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>network_method</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="network_method">DHCP</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>network_static_gateway</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="network_static_gateway">192.168.1.1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>network_static_ip_address</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="network_static_ip_address">192.168.1.100</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>network_static_subnet_mask</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="network_static_subnet_mask">255.255.255.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>port_mapping</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="user" spirit:id="port_mapping"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>priority</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="priority"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>qemu_cosim_port.is_automatic</spirit:name>
+            <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="qemu_cosim_port.is_automatic">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>qemu_hw_device_tree_location</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="qemu_hw_device_tree_location">%installation_folder%/data/sw/qemu/simulation-zynq/dts</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>qemu_icount</spirit:name>
+            <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="qemu_icount">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>qemu_icount.is_enabled</spirit:name>
+            <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="qemu_icount.is_enabled">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>qemu_nics</spirit:name>
+            <spirit:value spirit:format="long" spirit:resolve="immediate" spirit:id="qemu_nics">2</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>tftp_port</spirit:name>
+            <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="tftp_port">1050</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>tftp_port.is_automatic</spirit:name>
+            <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="tftp_port.is_automatic">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>user_added_ip</spirit:name>
+            <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="user_added_ip">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>virtual_mac_address</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="virtual_mac_address">52:54:00:12:34:56</spirit:value>
+        </spirit:parameter>
+    </spirit:parameters>
+</spirit:component>

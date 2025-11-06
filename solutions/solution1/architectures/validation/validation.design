@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<spirit:design xmlns:spacestudio="https://www.spacecodesign.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
+    <spirit:vendor>spacecodesign.com</spirit:vendor>
+    <spirit:library>design</spirit:library>
+    <spirit:name>toplevel</spirit:name>
+    <spirit:version>1.0</spirit:version>
+    <spirit:componentInstances>
+        <spirit:componentInstance>
+            <spirit:instanceName>axi4_interconnect0</spirit:instanceName>
+            <spirit:componentRef spirit:vendor="spacecodesign.com" spirit:library="interconnect" spirit:name="axi4_interconnect" spirit:version="1.0"/>
+            <spirit:configurableElementValues>
+                <spirit:configurableElementValue spirit:referenceId="bus_addresses">(void*)&amp;spacelib_global::axi4_interconnect0_container</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id">6</spirit:configurableElementValue>
+            </spirit:configurableElementValues>
+        </spirit:componentInstance>
+        <spirit:componentInstance>
+            <spirit:instanceName>controller0</spirit:instanceName>
+            <spirit:componentRef spirit:vendor="spacecodesign.com" spirit:library="module" spirit:name="controller0" spirit:version="1.0"/>
+            <spirit:configurableElementValues>
+                <spirit:configurableElementValue spirit:referenceId="axi_master_0.interconnect_id">6</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="axi_master_0.width">4</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="domain_id">0</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id">1</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id_key">CONTROLLER0_ID</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="index">0</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="is_user_instantiable">true</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="priority">1</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="register_master_0.destination_id">5</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="register_master_0.register_id">0</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="register_master_0.type">WRITE</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="stream_master_0.destination_id">3</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="stream_master_0.type">SDL_WRITE</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="stream_master_0.width">4</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="stream_slave_0.destination_id">3</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="stream_slave_0.type">SDL_READ</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="stream_slave_0.width">4</spirit:configurableElementValue>
+            </spirit:configurableElementValues>
+        </spirit:componentInstance>
+        <spirit:componentInstance>
+            <spirit:instanceName>register_file0</spirit:instanceName>
+            <spirit:componentRef spirit:vendor="spacecodesign.com" spirit:library="ip" spirit:name="register_file" spirit:version="1.0"/>
+            <spirit:configurableElementValues>
+                <spirit:configurableElementValue spirit:referenceId="id">5</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id_key">REGISTER_FILE0_ID</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="user_added_ip">true</spirit:configurableElementValue>
+            </spirit:configurableElementValues>
+        </spirit:componentInstance>
+        <spirit:componentInstance>
+            <spirit:instanceName>reset_manager0</spirit:instanceName>
+            <spirit:componentRef spirit:vendor="spacecodesign.com" spirit:library="ip" spirit:name="reset_manager" spirit:version="1.0"/>
+        </spirit:componentInstance>
+        <spirit:componentInstance>
+            <spirit:instanceName>sdl_fifo0</spirit:instanceName>
+            <spirit:componentRef spirit:vendor="spacecodesign.com" spirit:library="ip" spirit:name="sdl_fifo" spirit:version="1.0"/>
+            <spirit:configurableElementValues>
+                <spirit:configurableElementValue spirit:referenceId="depth">64</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="generic_fifo">new generic_fifo&lt;4&gt;(64)</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id">8</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="reader_id">1</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="writer_id">3</spirit:configurableElementValue>
+            </spirit:configurableElementValues>
+        </spirit:componentInstance>
+        <spirit:componentInstance>
+            <spirit:instanceName>sdl_fifo1</spirit:instanceName>
+            <spirit:componentRef spirit:vendor="spacecodesign.com" spirit:library="ip" spirit:name="sdl_fifo" spirit:version="1.0"/>
+            <spirit:configurableElementValues>
+                <spirit:configurableElementValue spirit:referenceId="depth">64</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="generic_fifo">new generic_fifo&lt;4&gt;(64)</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id">9</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="reader_id">3</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="writer_id">1</spirit:configurableElementValue>
+            </spirit:configurableElementValues>
+        </spirit:componentInstance>
+        <spirit:componentInstance>
+            <spirit:instanceName>simulation_serialization0</spirit:instanceName>
+            <spirit:componentRef spirit:vendor="spacecodesign.com" spirit:library="device" spirit:name="simulation_serialization0" spirit:version="1.0"/>
+            <spirit:configurableElementValues>
+                <spirit:configurableElementValue spirit:referenceId="axi_slave_mm.baseAddress">0x00000000</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="axi_slave_mm.range">4KB</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="domain_id">0</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id">2</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id_key">SIMULATION_SERIALIZATION0_ID</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="index">0</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="is_user_instantiable">true</spirit:configurableElementValue>
+            </spirit:configurableElementValues>
+        </spirit:componentInstance>
+        <spirit:componentInstance>
+            <spirit:instanceName>sobel0</spirit:instanceName>
+            <spirit:componentRef spirit:vendor="spacecodesign.com" spirit:library="module" spirit:name="sobel0" spirit:version="1.0"/>
+            <spirit:configurableElementValues>
+                <spirit:configurableElementValue spirit:referenceId="axi_master_0.interconnect_id">6</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="axi_master_0.width">4</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="domain_id">0</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id">3</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id_key">SOBEL0_ID</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="index">0</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="is_user_instantiable">true</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="priority">2</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="register_slave_0.destination_id">5</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="register_slave_0.register_id">0</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="register_slave_0.type">READ</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="stream_master_0.destination_id">1</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="stream_master_0.type">SDL_WRITE</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="stream_master_0.width">4</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="stream_slave_0.destination_id">1</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="stream_slave_0.type">SDL_READ</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="stream_slave_0.width">4</spirit:configurableElementValue>
+            </spirit:configurableElementValues>
+        </spirit:componentInstance>
+        <spirit:componentInstance>
+            <spirit:instanceName>zynq_ddr0</spirit:instanceName>
+            <spirit:componentRef spirit:vendor="spacecodesign.com" spirit:library="memory" spirit:name="bram" spirit:version="1.0"/>
+            <spirit:configurableElementValues>
+                <spirit:configurableElementValue spirit:referenceId="axi_slave_mm.base_address">0x04000000</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="axi_slave_mm.range">64MB</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id">4</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="id_key">ZYNQ_DDR0_ID</spirit:configurableElementValue>
+                <spirit:configurableElementValue spirit:referenceId="user_added_ip">true</spirit:configurableElementValue>
+            </spirit:configurableElementValues>
+        </spirit:componentInstance>
+    </spirit:componentInstances>
+    <spirit:interconnections>
+        <spirit:interconnection>
+            <spirit:name>axi4_interconnect0_axi_master_0</spirit:name>
+            <spirit:activeInterface spirit:componentRef="axi4_interconnect0" spirit:busRef="axi_master_0"/>
+            <spirit:activeInterface spirit:componentRef="simulation_serialization0" spirit:busRef="axi_slave"/>
+        </spirit:interconnection>
+        <spirit:interconnection>
+            <spirit:name>axi4_interconnect0_axi_master_1</spirit:name>
+            <spirit:activeInterface spirit:componentRef="axi4_interconnect0" spirit:busRef="axi_master_1"/>
+            <spirit:activeInterface spirit:componentRef="zynq_ddr0" spirit:busRef="axi_slave"/>
+        </spirit:interconnection>
+        <spirit:interconnection>
+            <spirit:name>controller0_axi_master_00</spirit:name>
+            <spirit:activeInterface spirit:componentRef="controller0" spirit:busRef="axi_master_0"/>
+            <spirit:activeInterface spirit:componentRef="axi4_interconnect0" spirit:busRef="axi_slave_0"/>
+        </spirit:interconnection>
+        <spirit:interconnection>
+            <spirit:name>controller0_register_master_00</spirit:name>
+            <spirit:activeInterface spirit:componentRef="controller0" spirit:busRef="register_master_0"/>
+            <spirit:activeInterface spirit:componentRef="register_file0" spirit:busRef="register_master"/>
+        </spirit:interconnection>
+        <spirit:interconnection>
+            <spirit:name>controller0_stream_master_00</spirit:name>
+            <spirit:activeInterface spirit:componentRef="controller0" spirit:busRef="stream_master_0"/>
+            <spirit:activeInterface spirit:componentRef="sdl_fifo1" spirit:busRef="stream_slave"/>
+        </spirit:interconnection>
+        <spirit:interconnection>
+            <spirit:name>sdl_fifo0_stream_master</spirit:name>
+            <spirit:activeInterface spirit:componentRef="controller0" spirit:busRef="stream_slave_0"/>
+            <spirit:activeInterface spirit:componentRef="sdl_fifo0" spirit:busRef="stream_master"/>
+        </spirit:interconnection>
+        <spirit:interconnection>
+            <spirit:name>sdl_fifo1_stream_master</spirit:name>
+            <spirit:activeInterface spirit:componentRef="sobel0" spirit:busRef="stream_slave_0"/>
+            <spirit:activeInterface spirit:componentRef="sdl_fifo1" spirit:busRef="stream_master"/>
+        </spirit:interconnection>
+        <spirit:interconnection>
+            <spirit:name>sobel0_axi_master_00</spirit:name>
+            <spirit:activeInterface spirit:componentRef="sobel0" spirit:busRef="axi_master_0"/>
+            <spirit:activeInterface spirit:componentRef="axi4_interconnect0" spirit:busRef="axi_slave_1"/>
+        </spirit:interconnection>
+        <spirit:interconnection>
+            <spirit:name>sobel0_register_slave_00</spirit:name>
+            <spirit:activeInterface spirit:componentRef="sobel0" spirit:busRef="register_slave_0"/>
+            <spirit:activeInterface spirit:componentRef="register_file0" spirit:busRef="register_slave"/>
+        </spirit:interconnection>
+        <spirit:interconnection>
+            <spirit:name>sobel0_stream_master_00</spirit:name>
+            <spirit:activeInterface spirit:componentRef="sobel0" spirit:busRef="stream_master_0"/>
+            <spirit:activeInterface spirit:componentRef="sdl_fifo0" spirit:busRef="stream_slave"/>
+        </spirit:interconnection>
+    </spirit:interconnections>
+    <spirit:adHocConnections>
+        <spirit:adHocConnection>
+            <spirit:name>reset_signal</spirit:name>
+            <spirit:internalPortReference spirit:componentRef="reset_manager0" spirit:portRef="reset"/>
+            <spirit:internalPortReference spirit:componentRef="controller0" spirit:portRef="reset"/>
+            <spirit:internalPortReference spirit:componentRef="simulation_serialization0" spirit:portRef="reset"/>
+            <spirit:internalPortReference spirit:componentRef="sobel0" spirit:portRef="reset"/>
+            <spirit:internalPortReference spirit:componentRef="sdl_fifo0" spirit:portRef="reset"/>
+            <spirit:internalPortReference spirit:componentRef="sdl_fifo1" spirit:portRef="reset"/>
+        </spirit:adHocConnection>
+    </spirit:adHocConnections>
+</spirit:design>

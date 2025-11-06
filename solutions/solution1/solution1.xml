@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<solution name="solution1" version="4.5.0" xmlns="https://www.spacecodesign.com/schemas/3.0/solution.xsd">
+    <architectures>validation</architectures>
+    <architectures>zynq_all_sw</architectures>
+</solution>
