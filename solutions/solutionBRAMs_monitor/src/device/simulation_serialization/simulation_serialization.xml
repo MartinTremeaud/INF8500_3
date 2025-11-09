@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<spirit:component xmlns:spacestudio="https://www.spacecodesign.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
+    <spirit:vendor>spacecodesign.com</spirit:vendor>
+    <spirit:library>device</spirit:library>
+    <spirit:name>simulation_serialization</spirit:name>
+    <spirit:version>1.0</spirit:version>
+    <spirit:busInterfaces>
+        <spirit:busInterface>
+            <spirit:name>axi_slave</spirit:name>
+            <spirit:busType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="memory_map" spirit:version="1.0"/>
+            <spirit:abstractionType spirit:vendor="spacecodesign.com" spirit:library="interface" spirit:name="memory_map_simulation" spirit:version="1.0"/>
+            <spirit:slave>
+                <spirit:memoryMapRef spirit:memoryMapRef="axi_slave_mm"/>
+            </spirit:slave>
+            <spirit:portMaps>
+                <spirit:portMap>
+                    <spirit:logicalPort>
+                        <spirit:name>transaction</spirit:name>
+                    </spirit:logicalPort>
+                    <spirit:physicalPort>
+                        <spirit:name>axi_slave</spirit:name>
+                    </spirit:physicalPort>
+                </spirit:portMap>
+            </spirit:portMaps>
+        </spirit:busInterface>
+    </spirit:busInterfaces>
+    <spirit:memoryMaps>
+        <spirit:memoryMap>
+            <spirit:name>axi_slave_mm</spirit:name>
+            <spirit:addressBlock>
+                <spirit:name>registers</spirit:name>
+                <spirit:baseAddress spirit:format="long" spirit:resolve="generated" spirit:id="axi_slave_mm.baseAddress">0x0</spirit:baseAddress>
+                <spirit:range spirit:format="long" spirit:resolve="generated" spirit:id="axi_slave_mm.range">0x1000</spirit:range>
+                <spirit:width spirit:format="long" spirit:resolve="immediate">32</spirit:width>
+            </spirit:addressBlock>
+        </spirit:memoryMap>
+    </spirit:memoryMaps>
+    <spirit:model>
+        <spirit:views>
+            <spirit:view>
+                <spirit:name>simulation_serial</spirit:name>
+                <spirit:envIdentifier>:spacestudio.spacecodesign.com:</spirit:envIdentifier>
+                <spirit:language>systemc</spirit:language>
+            </spirit:view>
+        </spirit:views>
+        <spirit:ports>
+            <spirit:port>
+                <spirit:name>axi_slave</spirit:name>
+                <spirit:transactional>
+                    <spirit:transTypeDef>
+                        <spirit:typeName>sc_export</spirit:typeName>
+                        <spirit:typeDefinition>systemc</spirit:typeDefinition>
+                    </spirit:transTypeDef>
+                    <spirit:service>
+                        <spirit:initiative>provides</spirit:initiative>
+                        <spirit:serviceTypeDefs>
+                            <spirit:serviceTypeDef>
+                                <spirit:typeName>memory_map_if</spirit:typeName>
+                                <spirit:typeDefinition>memory_map_if.h</spirit:typeDefinition>
+                            </spirit:serviceTypeDef>
+                        </spirit:serviceTypeDefs>
+                    </spirit:service>
+                </spirit:transactional>
+            </spirit:port>
+            <spirit:port>
+                <spirit:name>reset</spirit:name>
+                <spirit:transactional>
+                    <spirit:transTypeDef>
+                        <spirit:typeName>sc_port</spirit:typeName>
+                        <spirit:typeDefinition>systemc</spirit:typeDefinition>
+                    </spirit:transTypeDef>
+                    <spirit:service>
+                        <spirit:initiative>provides</spirit:initiative>
+                        <spirit:serviceTypeDefs>
+                            <spirit:serviceTypeDef>
+                                <spirit:typeName>bool</spirit:typeName>
+                            </spirit:serviceTypeDef>
+                        </spirit:serviceTypeDefs>
+                    </spirit:service>
+                </spirit:transactional>
+            </spirit:port>
+        </spirit:ports>
+        <spirit:modelParameters>
+            <spirit:modelParameter spirit:dataType="unsigned int">
+                <spirit:name>id</spirit:name>
+                <spirit:value spirit:format="string" spirit:order="4.0" spirit:resolve="generated" spirit:id="id"></spirit:value>
+            </spirit:modelParameter>
+            <spirit:modelParameter spirit:dataType="string">
+                <spirit:name>instance_name</spirit:name>
+                <spirit:value spirit:format="string" spirit:order="1.0" spirit:resolve="generated" spirit:id="instance_name"></spirit:value>
+            </spirit:modelParameter>
+            <spirit:modelParameter spirit:dataType="double">
+                <spirit:name>period</spirit:name>
+                <spirit:value spirit:format="string" spirit:order="2.0" spirit:resolve="generated" spirit:id="period">10.0</spirit:value>
+            </spirit:modelParameter>
+            <spirit:modelParameter spirit:dataType="sc_time_unit">
+                <spirit:name>period_unit</spirit:name>
+                <spirit:value spirit:format="string" spirit:order="3.0" spirit:resolve="generated" spirit:id="period_unit">SC_NS</spirit:value>
+            </spirit:modelParameter>
+            <spirit:modelParameter spirit:dataType="bool">
+                <spirit:name>verbose</spirit:name>
+                <spirit:value spirit:format="string" spirit:order="5.0" spirit:resolve="generated" spirit:id="verbose">false</spirit:value>
+            </spirit:modelParameter>
+        </spirit:modelParameters>
+    </spirit:model>
+    <spirit:parameters>
+        <spirit:parameter>
+            <spirit:name>device_type</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="immediate" spirit:id="device_type">slave</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>documentation</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="documentation"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>domain_id</spirit:name>
+            <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="domain_id"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>id_key</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="id_key"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>index</spirit:name>
+            <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="index"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>is_simulation_only</spirit:name>
+            <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="is_simulation_only">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>is_user_instantiable</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="immediate" spirit:id="is_user_instantiable">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>location</spirit:name>
+            <spirit:value spirit:format="string" spirit:resolve="generated" spirit:id="location">%project_directory%/solutions/solutionBRAMs/src/device/simulation_serialization</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+            <spirit:name>user_added_ip</spirit:name>
+            <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="user_added_ip">true</spirit:value>
+        </spirit:parameter>
+    </spirit:parameters>
+</spirit:component>
