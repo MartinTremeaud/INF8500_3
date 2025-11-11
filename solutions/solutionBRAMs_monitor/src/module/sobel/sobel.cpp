@@ -112,7 +112,7 @@ void sobel::thread(SPACECOMP_THREAD_PARAMS(sobel, INDEX, thread))
 
 		// Section 2: A completer (1 instruction)
 		transfer_start = clk.now();
-		DeviceWrite(ZYNQ_DDR0_ID, output_addr_offset, buf_output_pixel, img_width); // ajout
+		DeviceWrite(ZYNQ_DDR0_ID, output_addr_offset, buf_output_pixel, img_width_slice); // ajout
 		transfer_end = clk.now();
 		cumul_transfer += transfer_end - transfer_start;
 
@@ -127,7 +127,7 @@ void sobel::thread(SPACECOMP_THREAD_PARAMS(sobel, INDEX, thread))
 			// Section 3: A completer (2 instructions)//
 			transfer_start = clk.now();
 			DeviceRead(ZYNQ_DDR0_ID, input_addr_offset, buf_input[i], img_width_slice); // ajout
-			input_addr_offset += img_width_slice;										// ajout
+			input_addr_offset += img_width;										// ajout
 			transfer_end = clk.now();
 			cumul_transfer += transfer_end - transfer_start;
 		}
@@ -213,7 +213,7 @@ void sobel::thread(SPACECOMP_THREAD_PARAMS(sobel, INDEX, thread))
 			// Section 4: A completer (2 instructions)
 			transfer_start = clk.now();
 			DeviceWrite(ZYNQ_DDR0_ID, output_addr_offset, buf_output_pixel, img_width_slice); // ajout
-			output_addr_offset += img_width_slice;											  // ajout
+			output_addr_offset += img_width;											  // ajout
 			transfer_end = clk.now();
 			cumul_transfer += transfer_end - transfer_start;
 			counterLineProcessed++;
@@ -226,7 +226,7 @@ void sobel::thread(SPACECOMP_THREAD_PARAMS(sobel, INDEX, thread))
 				// Section 5: A completer (2 instructions)
 				transfer_start = clk.now();
 				DeviceRead(ZYNQ_DDR0_ID, input_addr_offset, buf_input[refill], img_width_slice); // ajout
-				input_addr_offset += img_width_slice;											 // ajout
+				input_addr_offset += img_width;											 // ajout
 				transfer_end = clk.now();
 				cumul_transfer += transfer_end - transfer_start;
 				next_line_to_read++;
